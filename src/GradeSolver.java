@@ -50,7 +50,6 @@ public class GradeSolver extends JFrame implements ActionListener {
         pane.add(presentationField);
         pane.add(finalLabel);
         pane.add(finalField);
-
         pane.add(calculateButton);
         pane.add(clearButton);
 
@@ -102,7 +101,7 @@ public class GradeSolver extends JFrame implements ActionListener {
                 remarksText = "Student failed the subject.";
             }
         }
-
+//@author AVISHEIKH
         reportLabel.setText(" --  Grade Report  -- ");
         gradeLabel.setText("Student mark is " + String.format("%.0f",   solve) + " and grade is:");
 
