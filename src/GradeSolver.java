@@ -24,7 +24,7 @@ public class GradeSolver extends JFrame implements ActionListener {
 
     public GradeSolver() {
         super("Grade Solver created by Avisheikh");
-        setSize(240, 340);
+        setSize(240, 300);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
