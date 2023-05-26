@@ -3,9 +3,12 @@ import java.awt.event.*;
 
 public class GradeSolver extends JFrame implements ActionListener {
 
-    JTextField quizField = new JTextField(10);
-    JTextField midtermField = new JTextField(10);
-    JTextField finalField = new JTextField(10);
+    JTextField quizField =        new JTextField(10);
+    JTextField midtermField =     new JTextField(10);
+    JTextField attendanceField =  new JTextField(10);
+    JTextField assignmentField =  new JTextField(10);
+    JTextField presentationField =new JTextField(10);
+    JTextField finalField =       new JTextField(10);
 
     JButton calculateButton = new JButton("Calculate");
     JButton clearButton = new JButton("Clear");
@@ -15,27 +18,36 @@ public class GradeSolver extends JFrame implements ActionListener {
     JLabel reportLabel = new JLabel();
 
     double solve = 0.00;
-    double quizValue = 0.00, midtermValue = 0.00, finalValue = 0.00;
+    double quizValue = 0.00, midtermValue = 0.00, attendanceValue =0.00, assignmentValue =0.00 ,presentationValue =0.00, finalValue = 0.00;
 
     String remarksText;
 
     public GradeSolver() {
         super("Grade Solver created by Avisheikh");
-        setSize(240, 240);
+        setSize(240, 340);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel pane = new JPanel();
 
-        JLabel quizLabel = new JLabel("Quiz           ");
-        JLabel midtermLabel = new JLabel("Midterm     ");
-        JLabel finalLabel = new JLabel("Finals        ");
+        JLabel quizLabel =        new JLabel("Quiz                      ");
+        JLabel midtermLabel =      new JLabel("Midterm                ");
+        JLabel attendanceLabel =   new JLabel("Attendance           ");
+        JLabel assignmentLabel =   new JLabel("Assignment           ");
+        JLabel presentationLabel = new JLabel("Presentation         ");
+        JLabel finalLabel =       new JLabel("Finals                     ");
 
         pane.add(quizLabel);
         pane.add(quizField);
 
         pane.add(midtermLabel);
         pane.add(midtermField);
+        pane.add(attendanceLabel);
+        pane.add(attendanceField);
+        pane.add(assignmentLabel);
+        pane.add(assignmentField);
+        pane.add(presentationLabel);
+        pane.add(presentationField);
         pane.add(finalLabel);
         pane.add(finalField);
 
@@ -61,9 +73,12 @@ public class GradeSolver extends JFrame implements ActionListener {
         if (calculateButton == e.getSource()) {
             quizValue = Double.parseDouble(quizField.getText()) ;
             midtermValue = Double.parseDouble(midtermField.getText()) ;
+            attendanceValue = Double.parseDouble(attendanceField.getText());
+            assignmentValue = Double.parseDouble(assignmentField.getText());
+            presentationValue = Double.parseDouble(presentationField.getText());
             finalValue = Double.parseDouble(finalField.getText()) ;
 
-            solve = (quizValue + midtermValue + finalValue);
+            solve = (quizValue + midtermValue + attendanceValue + assignmentValue + presentationValue +  finalValue);
 
             if (solve >= 80 && solve <= 100) {
                 remarksText = "4.00";
@@ -88,7 +103,7 @@ public class GradeSolver extends JFrame implements ActionListener {
             }
         }
 
-        reportLabel.setText(" ==   Grade Report  == ");
+        reportLabel.setText(" --  Grade Report  -- ");
         gradeLabel.setText("Student mark is " + String.format("%.0f",   solve) + " and grade is:");
 
         remarksLabel.setText(remarksText);
@@ -96,6 +111,9 @@ public class GradeSolver extends JFrame implements ActionListener {
         if (clearButton == e.getSource()) {
             quizField.setText("");
             midtermField.setText("");
+            attendanceField.setText("");
+                    assignmentField.setText("");
+            presentationField.setText("");
             finalField.setText("");
 
             reportLabel.setText("");
